@@ -1,6 +1,6 @@
 <a href="">Clique aqui para ter acesso a este projeto.</a>
 
-##Ignite Rockeat-Seat
+<h1>Ignite Rockeat-Seat</h1>
 
 <h1>Rede social Ignite</h1>
 
