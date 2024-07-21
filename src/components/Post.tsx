@@ -22,7 +22,7 @@ interface Content {
 export interface PostType {
     id: number;
     author: Author;
-    publisedAt: Date;
+    publishedAt: Date; // Corrigido aqui
     content: Content[];
 }
 
@@ -89,26 +89,27 @@ export function Post({ post }: PostProps) {
                     }
                     return null;
                 })}
+            </div>
 
-                <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
-                    <strong>Deixe seu feedback</strong>
-                    <textarea
-                        onChange={handleNewCommentChange}
-                        value={newCommentText}
-                        onInvalid={handleNewCommentInvalid}
-                        required
-                        placeholder="Deixe um comentário"
-                        name="comment"
-                    />
-                    <footer>
-                        <button type="submit" disabled={isNewCommentEmpty}>Publicar</button>
-                    </footer>
-                </form>
-                <div className={styles.commentList}>
-                    {comments.map((comment) => (
-                        <Comment key={comment} content={comment} onDeleteComment={deleteComment} />
-                    ))}
-                </div>
+            <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
+                <strong>Deixe seu feedback</strong>
+                <textarea
+                    onChange={handleNewCommentChange}
+                    value={newCommentText}
+                    onInvalid={handleNewCommentInvalid}
+                    required
+                    placeholder="Deixe um comentário"
+                    name="comment"
+                />
+                <footer>
+                    <button type="submit" disabled={isNewCommentEmpty}>Publicar</button>
+                </footer>
+            </form>
+
+            <div className={styles.commentList}>
+                {comments.map((comment) => (
+                    <Comment key={comment} content={comment} onDeleteComment={deleteComment} />
+                ))}
             </div>
         </article>
     );
